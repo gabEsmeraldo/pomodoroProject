@@ -1,24 +1,35 @@
-<title>Pomodoro</title>
-<div>
-    <div id="buttons">
-        <!-- make buttons change selector from pomodoro to break -->
-        <button type="button" id="modePomodoro" class="buttonModo">Pomodoro</button>
-        <button type="button" id="modeBreak" class="buttonModo">Break</button>
+<link rel="stylesheet" href="templates/bootstrap.css">
+<link rel="stylesheet" href="templates/styles.css">
+
+
+<!-- trocar icone da aba -->
+<link rel="icon" href="assets/image-removebg-preview.png">
+<!-- escolher um nome descente -->
+<title>Pomodoro</title> 
+
+
+<div class="selector">
+    <div class="buttonMode">
+        <button id="modePomodoro" type="button">Pomodoro</button>
+        <button id="modeBreak" type="button">Break</button>
     </div>
     <div class="timer" id="timerPomodoro">
         <form>
-            <input class="timer" type="number" id="pomodoroHoursSelector" placeholder="00" min="0" max="23" value="">
-            <input class="timer" type="number" id="pomodoroMinutesSelector" placeholder="00" min="0" max="59" value="">
-            <input class="timer" type="number" id="pomodoroSecondsSelector" placeholder="00" min="0" max="59" value="">
+            <input id="pomodoroHoursSelector" type="number" placeholder="00" min="0" max="23" value="">
+            <a class="dots">:</a>
+            <input id="pomodoroMinutesSelector" type="number" placeholder="00" min="0" max="59" value="">
+            <a class="dots">:</a>
+            <input id="pomodoroSecondsSelector" type="number" placeholder="00" min="0" max="59" value="">
         </form>
     </div>
     <div class="timer" id="timerBreak" style="display: none;">
         <form>
-            <input class="timer" type="number" id="breakMinutesSelector" value="00" min="0" max="59">
-            <input class="timer" type="number" id="breakSecondsSelector" value="00" min="0" max="59">
+            <input id="breakMinutesSelector" type="number" placeholder="00" min="0" max="59" value="">
+            <a class="dots">:</a>
+            <input id="breakSecondsSelector" type="number" placeholder="00" min="0" max="59" value="">
         </form>
     </div>
-    <button type="submit" id="start" class="buttonStart" onclick="startTimer(pomodoroHours, pomodoroMinutes, pomodoroSeconds)">Start</button>
+    <button class="buttonStart" id="start" type="submit"  onclick="startTimer(pomodoroHours, pomodoroMinutes, pomodoroSeconds)">Start</button>
     <!-- make button work properly -->
 </div>
 <script src="js/getTime.js"></script>
@@ -27,4 +38,9 @@
     var pomodoroHours = 0;
     var pomodoroMinutes = 0;
     var pomodoroSeconds = 0;
+</script>
+<script>
+  window.onload = function() {
+    document.getElementById('modePomodoro').focus();
+  }
 </script>
