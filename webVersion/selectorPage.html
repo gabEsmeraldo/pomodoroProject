@@ -1,0 +1,30 @@
+<title>Pomodoro</title>
+<div>
+    <div id="buttons">
+        <!-- make buttons change selector from pomodoro to break -->
+        <button type="button" id="modePomodoro" class="buttonModo">Pomodoro</button>
+        <button type="button" id="modeBreak" class="buttonModo">Break</button>
+    </div>
+    <div class="timer" id="timerPomodoro">
+        <form>
+            <input class="timer" type="number" id="pomodoroHoursSelector" placeholder="00" min="0" max="23" value="">
+            <input class="timer" type="number" id="pomodoroMinutesSelector" placeholder="00" min="0" max="59" value="">
+            <input class="timer" type="number" id="pomodoroSecondsSelector" placeholder="00" min="0" max="59" value="">
+        </form>
+    </div>
+    <div class="timer" id="timerBreak" style="display: none;">
+        <form>
+            <input class="timer" type="number" id="breakMinutesSelector" value="00" min="0" max="59">
+            <input class="timer" type="number" id="breakSecondsSelector" value="00" min="0" max="59">
+        </form>
+    </div>
+    <button type="submit" id="start" class="buttonStart" onclick="startTimer(pomodoroHours, pomodoroMinutes, pomodoroSeconds)">Start</button>
+    <!-- make button work properly -->
+</div>
+<script src="js/getTime.js"></script>
+<script src="js/timer.js"></script>
+<script>
+    var pomodoroHours = 0;
+    var pomodoroMinutes = 0;
+    var pomodoroSeconds = 0;
+</script>
