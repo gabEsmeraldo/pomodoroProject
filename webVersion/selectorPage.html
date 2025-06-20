@@ -8,7 +8,7 @@
 <title>Pomodoro</title> 
 
 
-<div class="selector">
+<div class="selector" id="selector">
     <div class="buttonMode">
         <button id="modePomodoro" type="button" onclick="changeToPomodoro()">Pomodoro</button>
         <button id="modeBreak" type="button" onclick="changeToBreak()">Break</button>
@@ -30,7 +30,21 @@
         </form>
     </div>
     <button class="buttonStart" id="start" type="submit"  onclick="startPomodoroTimer(pomodoroHours, pomodoroMinutes, pomodoroSeconds, breakMinutes, breakSeconds)">Start</button>
-    <!-- make button work properly -->
+</div>
+<div class="fullScreenTimer" id="fullScreenTimer" style="display: none;">
+    <div class="timerDisplay">
+        <h1 id="timerDisplay">00:00:00</h1>
+    </div>
+    <div class="buttonFullScreen">
+
+
+        <!-- make buttons work -->
+        
+        
+        <button id="resetButton" type="button" onclick="resetTimer()">Reset</button>
+        <button id="pauseButton" type="button" onclick="pauseTimer()">Pause</button>
+        <button id="breakButton" type="button" onclick="skipToBreak()">Break</button>
+    </div>    
 </div>
 <script src="js/timerSelectorUpdates.js"></script>
 <script src="js/timer.js"></script>
