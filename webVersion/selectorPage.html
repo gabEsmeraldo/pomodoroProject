@@ -10,8 +10,8 @@
 
 <div class="selector">
     <div class="buttonMode">
-        <button id="modePomodoro" type="button">Pomodoro</button>
-        <button id="modeBreak" type="button">Break</button>
+        <button id="modePomodoro" type="button" onclick="changeToPomodoro()">Pomodoro</button>
+        <button id="modeBreak" type="button" onclick="changeToBreak()">Break</button>
     </div>
     <div class="timer" id="timerPomodoro">
         <form>
@@ -29,9 +29,10 @@
             <input id="breakSecondsSelector" type="number" placeholder="00" min="0" max="59" value="">
         </form>
     </div>
-    <button class="buttonStart" id="start" type="submit"  onclick="startTimer(pomodoroHours, pomodoroMinutes, pomodoroSeconds)">Start</button>
+    <button class="buttonStart" id="start" type="submit"  onclick="startPomodoroTimer(pomodoroHours, pomodoroMinutes, pomodoroSeconds, breakMinutes, breakSeconds)">Start</button>
     <!-- make button work properly -->
 </div>
 <script src="js/timerSelectorUpdates.js"></script>
 <script src="js/timer.js"></script>
-<script src="js/defaulValues.js"></script>
+<script src="js/defaultValues.js"></script>
+<script src="js/changePageScripts.js"></script>

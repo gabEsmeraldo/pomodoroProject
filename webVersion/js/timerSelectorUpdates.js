@@ -1,6 +1,5 @@
 pomodoroHoursSelector.addEventListener('change', () => {
     pomodoroHours = pomodoroHoursSelector.value;
-    console.log(`Pomodoro hours updated to: ${pomodoroHours}`);
 });
 pomodoroMinutesSelector.addEventListener('change', () => {
     pomodoroMinutes = pomodoroMinutesSelector.value;
