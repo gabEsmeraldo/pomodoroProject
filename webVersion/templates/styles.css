@@ -1,10 +1,25 @@
 body{
     font-family: Roboto, sans-serif;
-    background-image: url(../assets/montery-b&w.jpg);
-    background-attachment: fixed;      
-    background-size: cover;            
-    background-repeat: no-repeat;      
     color: #F5F2D0;
+    transition: background-image 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+
+.bg-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    background-image: url('../assets/montery-colored.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: filter 1.5s ease-in-out;
+    filter: grayscale(0);
+}
+.bg-overlay.bw-mode {
+    filter: grayscale(1);
 }
 
 button{
@@ -98,7 +113,61 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
     padding: 20px;
 }
 
+
+{% comment %} TEMPORARY FOR EASY OF TESTING {% endcomment %}
+.fullScreenTimer{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    transform-origin: top center;
+    background-color: #171717;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 32px 40px;
+    box-sizing: border-box;
+}
+
 #start{
     background-color:rgb(26, 26, 26);
     width: 100px;
+}
+
+.buttonFullScreen{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.timerDisplay {
+    flex: 1 1 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.timerDisplay h1{
+    font-size: clamp(3rem, 15vw, 15vh);
+    margin: 0;
+    padding: 0;
+    color: #F5F2D0;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }

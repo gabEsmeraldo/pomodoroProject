@@ -29,24 +29,20 @@
             <input id="breakSecondsSelector" type="number" placeholder="00" min="0" max="59" value="">
         </form>
     </div>
-    <button class="buttonStart" id="start" type="submit"  onclick="startPomodoroTimer(pomodoroHours, pomodoroMinutes, pomodoroSeconds, breakMinutes, breakSeconds)">Start</button>
+    <button class="buttonStart" id="startButton">Start</button>
 </div>
 <div class="fullScreenTimer" id="fullScreenTimer" style="display: none;">
     <div class="timerDisplay">
         <h1 id="timerDisplay">00:00:00</h1>
     </div>
     <div class="buttonFullScreen">
-
-
-        <!-- make buttons work -->
-        
-        
-        <button id="resetButton" type="button" onclick="resetTimer()">Reset</button>
-        <button id="pauseButton" type="button" onclick="pauseTimer()">Pause</button>
-        <button id="breakButton" type="button" onclick="skipToBreak()">Break</button>
+        <button id="resetButton" type="button">Reset</button>
+        <button id="pauseButton" type="button">Pause</button>
+        <button id="unpauseButton" type="button">Unpause</button>
+        <button id="skipButton" type="button">Skip</button>
+        <button id="breakButton" type="button">Break</button>
+        <button id="stopButton" type="button">Stop</button>
     </div>    
 </div>
-<script src="js/timerSelectorUpdates.js"></script>
 <script src="js/timer.js"></script>
-<script src="js/defaultValues.js"></script>
 <script src="js/changePageScripts.js"></script>
