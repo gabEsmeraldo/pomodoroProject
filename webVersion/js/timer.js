@@ -131,6 +131,7 @@ function start() {
   disable(unpauseButton);
   disable(stopButton);
   
+  setOverlayBg('bw'); // Set background to black and white when timer starts
   updateButtonStates();
   run();
 }
@@ -167,6 +168,7 @@ function pause() {
     clearInterval(timer);
     isPaused = true;
     isRunning = false;
+    setOverlayBg('colored'); // Set background to colored when paused
     updateButtonStates();
     console.log("Timer paused");
   }
@@ -176,6 +178,7 @@ function unpause() {
   if (isPaused) {
     isPaused = false;
     isRunning = true;
+    setOverlayBg('bw'); // Set background back to black and white when unpaused
     updateButtonStates();
     run();
     console.log("Timer unpaused");
@@ -229,6 +232,7 @@ function reset() {
   disable(stopButton);
   
   // Start the countdown
+  setOverlayBg('bw'); // Set background to black and white when timer is running
   updateButtonStates();
   run();
   
@@ -274,6 +278,7 @@ function skip() {
     console.log("Skipping to pomodoro");
   }
   
+  setOverlayBg('bw'); // Set background to black and white when skipping to new timer
   start(); // Start the new timer
 }
 
@@ -282,6 +287,7 @@ function skipToPomodoro() {
   isRunning = false;
   isPaused = false;
   isBreakTime = false;
+  setOverlayBg('bw'); // Set background to black and white when skipping to pomodoro
   // Start pomodoro timer immediately
   start();
   console.log("Skipped break, starting pomodoro");
