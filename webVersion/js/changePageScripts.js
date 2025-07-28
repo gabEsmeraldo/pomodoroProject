@@ -1,4 +1,3 @@
-// Add a single background overlay div on page load for filter-based crossfade
 (function() {
   const overlay = document.createElement('div');
   overlay.className = 'bg-overlay';
