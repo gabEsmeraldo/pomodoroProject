@@ -113,8 +113,6 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
     padding: 20px;
 }
 
-
-{% comment %} TEMPORARY FOR EASY OF TESTING {% endcomment %}
 .fullScreenTimer{
     position: fixed;
     top: 50%;
