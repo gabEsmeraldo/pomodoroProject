@@ -82,7 +82,6 @@ if (breakMinutesSelector) clampInputToMax(breakMinutesSelector, 59);
 if (breakSecondsSelector) clampInputToMax(breakSecondsSelector, 59);
 
 function start() {
-  console.log("Starting timer");
   changeToFullscreenTimer();
   
   if (!isBreakTime) {
@@ -137,15 +136,12 @@ function tick() {
   } else {
     clearInterval(timer);
     isRunning = false;
-    console.log("Timer finished!");
     
     if (!isBreakTime) {
       isBreakTime = true;
-      console.log("Pomodoro finished, starting break");
       start();
     } else {
       isBreakTime = false;
-      console.log("Break finished, starting pomodoro");
       start();
     }
   }
@@ -158,7 +154,6 @@ function pause() {
     isRunning = false;
     setOverlayBg('colored');
     updateButtonStates();
-    console.log("Timer paused");
   }
 }
 
@@ -169,7 +164,6 @@ function unpause() {
     setOverlayBg('bw');
     updateButtonStates();
     run();
-    console.log("Timer unpaused");
   }
 }
 
@@ -218,8 +212,6 @@ function reset() {
   setOverlayBg('bw');
   updateButtonStates();
   run();
-  
-  console.log("Timer reset and auto-started");
 }
 
 function stop() {
@@ -242,8 +234,6 @@ function stop() {
   if (pomodoroSecondsSelector) pomodoroSecondsSelector.value = '';
   if (breakMinutesSelector) breakMinutesSelector.value = '';
   if (breakSecondsSelector) breakSecondsSelector.value = '';
-
-  console.log("Timer stopped");
 }
 
 function skip() {
@@ -252,12 +242,6 @@ function skip() {
   isPaused = false;
   
   isBreakTime = !isBreakTime;
-  
-  if (isBreakTime) {
-    console.log("Skipping to break");
-  } else {
-    console.log("Skipping to pomodoro");
-  }
   
   setOverlayBg('bw');
   start();
@@ -270,7 +254,6 @@ function skipToPomodoro() {
   isBreakTime = false;
   setOverlayBg('bw');
   start();
-  console.log("Skipped break, starting pomodoro");
 }
 
 function disable(element) {
