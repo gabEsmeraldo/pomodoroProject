@@ -42,6 +42,93 @@ button:focus{
     transition: background-color 0.5s ease;
 }
 
+.settings-button {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 3;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: rgba(23, 23, 23, 0.9);
+    font-size: 1.35rem;
+    line-height: 1;
+}
+
+.settings-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 4;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.settings-modal.open {
+    display: flex;
+}
+
+.settings-dialog {
+    width: min(420px, 100%);
+    background-color: #171717;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.settings-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.settings-header h2 {
+    margin: 0;
+    font-size: 1.35rem;
+}
+
+.settings-close {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.settings-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.settings-field input {
+    width: 100%;
+    color: #F5F2D0;
+}
+
+.settings-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.settings-secondary {
+    background-color: rgb(26, 26, 26);
+    border-radius: 8px;
+}
+
 input[type="number"]{
     width: 50px;
     height: 50px;

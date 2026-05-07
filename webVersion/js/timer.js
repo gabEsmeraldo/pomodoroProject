@@ -81,6 +81,21 @@ if (pomodoroSecondsSelector) clampInputToMax(pomodoroSecondsSelector, 59);
 if (breakMinutesSelector) clampInputToMax(breakMinutesSelector, 59);
 if (breakSecondsSelector) clampInputToMax(breakSecondsSelector, 59);
 
+function applyTimerUiState() {
+  if (typeof setOverlayForTimerState === 'function') {
+    setOverlayForTimerState(isRunning, isPaused, isBreakTime);
+  }
+  if (typeof updateSettingsButtonVisibility === 'function') {
+    updateSettingsButtonVisibility(isRunning, isPaused);
+  }
+}
+
+function notifyTimerChange() {
+  if (typeof playNotificationSound === 'function') {
+    playNotificationSound();
+  }
+}
+
 function start() {
   changeToFullscreenTimer();
   
@@ -120,7 +135,8 @@ function start() {
   disable(unpauseButton);
   disable(stopButton);
   
-  setOverlayBg('bw');
+  notifyTimerChange();
+  applyTimerUiState();
   updateButtonStates();
   run();
 }
@@ -152,7 +168,8 @@ function pause() {
     clearInterval(timer);
     isPaused = true;
     isRunning = false;
-    setOverlayBg('colored');
+    notifyTimerChange();
+    applyTimerUiState();
     updateButtonStates();
   }
 }
@@ -161,7 +178,8 @@ function unpause() {
   if (isPaused) {
     isPaused = false;
     isRunning = true;
-    setOverlayBg('bw');
+    notifyTimerChange();
+    applyTimerUiState();
     updateButtonStates();
     run();
   }
@@ -209,7 +227,8 @@ function reset() {
   disable(unpauseButton);
   disable(stopButton);
   
-  setOverlayBg('bw');
+  notifyTimerChange();
+  applyTimerUiState();
   updateButtonStates();
   run();
 }
@@ -234,6 +253,9 @@ function stop() {
   if (pomodoroSecondsSelector) pomodoroSecondsSelector.value = '';
   if (breakMinutesSelector) breakMinutesSelector.value = '';
   if (breakSecondsSelector) breakSecondsSelector.value = '';
+
+  notifyTimerChange();
+  applyTimerUiState();
 }
 
 function skip() {
@@ -243,7 +265,7 @@ function skip() {
   
   isBreakTime = !isBreakTime;
   
-  setOverlayBg('bw');
+  applyTimerUiState();
   start();
 }
 
@@ -252,7 +274,7 @@ function skipToPomodoro() {
   isRunning = false;
   isPaused = false;
   isBreakTime = false;
-  setOverlayBg('bw');
+  applyTimerUiState();
   start();
 }
 
@@ -286,4 +308,7 @@ function updateButtonStates() {
     disable(breakButton);
     enable(skipButton);
   }
+  applyTimerUiState();
 }
+
+applyTimerUiState();
