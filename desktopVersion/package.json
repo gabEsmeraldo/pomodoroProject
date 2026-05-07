@@ -1,0 +1,52 @@
+{
+  "name": "pomodoro-tray",
+  "version": "1.0.0",
+  "description": "Tray-first Pomodoro timer",
+  "author": "pomodoroProject contributors",
+  "main": "electron/main.js",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"vite --host 127.0.0.1\" \"wait-on http://127.0.0.1:5173 && cross-env VITE_DEV_SERVER_URL=http://127.0.0.1:5173 electron .\"",
+    "build": "vite build",
+    "start": "electron .",
+    "dist:win": "npm run build && cross-env TERM=dumb NODE_OPTIONS=--no-deprecation electron-builder --win portable"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.0",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^39.2.7",
+    "electron-builder": "^26.0.12",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "vite": "^7.2.7",
+    "wait-on": "^9.0.3"
+  },
+  "build": {
+    "appId": "com.pomodoroproject.tray",
+    "productName": "Pomodoro Tray",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist-renderer/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "src/assets/montery-colored.jpg",
+        "to": "assets/montery-colored.jpg"
+      }
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "icon": "build/icon.png",
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    }
+  }
+}

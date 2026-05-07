@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: #F5F2D0;
+  background: #171717;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 8px;
+  color: #F5F2D0;
+  background: rgba(26, 26, 26, 0.9);
+  cursor: pointer;
+}
+
+button:hover:not(:disabled),
+button:focus-visible {
+  background: rgba(46, 46, 46, 0.95);
+  outline: none;
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.app-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.wallpaper-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-position: center;
+  background-size: cover;
+  transition: filter 1.5s ease-in-out;
+  filter: grayscale(0);
+}
+
+.wallpaper-bw {
+  filter: grayscale(1);
+}
+
+.panel {
+  width: min(360px, 100%);
+  padding: 22px;
+  border-radius: 10px;
+  background: rgba(23, 23, 23, 0.92);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.36);
+}
+
+.timer-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.panel-header h1 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.mode-switch,
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mode-switch {
+  padding: 8px;
+  border-radius: 10px;
+  background: rgba(26, 26, 26, 0.95);
+}
+
+.mode-switch .active {
+  background: rgba(69, 69, 69, 0.95);
+}
+
+.time-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.time-selector input {
+  width: 58px;
+  height: 54px;
+  border: 0;
+  border-radius: 8px;
+  color: #F5F2D0;
+  background: rgba(26, 26, 26, 0.65);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  -moz-appearance: textfield;
+}
+
+.time-selector input::-webkit-outer-spin-button,
+.time-selector input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.time-selector span {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.primary-action {
+  min-width: 120px;
+}
+
+.running-state {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.timer-display {
+  width: 100%;
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+}
+
+.settings-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.file-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.file-field input {
+  width: 100%;
+  color: #F5F2D0;
+}
+
+.status-text {
+  min-height: 20px;
+  margin: 0;
+  color: #d8d4b6;
+}
